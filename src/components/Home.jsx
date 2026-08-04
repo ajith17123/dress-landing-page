@@ -512,13 +512,12 @@ export default function Home() {
                 <div className="esbs__map-iframe-wrapper">
                   <iframe
                     title="Bangalore Location Map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124408.31846985473!2d77.52554446973307!3d12.97159873030364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c100f81f%3A0x518761b7e5f96522!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.5000%2C12.9000%2C77.6500%2C13.0400&amp;layer=mapnik&amp;marker=12.971598%2C77.594563"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
               </Reveal>
