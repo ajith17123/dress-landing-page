@@ -82,9 +82,15 @@ const VALUES = [
 ];
 
 /* ─── Smooth scroll helper ────────────────────────────────────────── */
-function scrollTo(id) {
-  const el = document.querySelector(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+function scrollTo(target) {
+  if (window.lenis) {
+    window.lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+  } else if (typeof target === "number") {
+    window.scrollTo({ top: target, behavior: "smooth" });
+  } else {
+    const el = document.querySelector(target);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 /* ─── Reveal hook ─────────────────────────────────────────────────── */
@@ -208,7 +214,7 @@ export default function Home() {
             ))}
           </nav>
 
-          <a href="#" className="header__logo" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+          <a href="#" className="header__logo" onClick={e => { e.preventDefault(); scrollTo(0); }}>
             {BRAND}
           </a>
 
@@ -608,7 +614,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer__main">
           <a href="#" className="footer__logo"
-            onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+            onClick={e => { e.preventDefault(); scrollTo(0); }}>
             {BRAND.toUpperCase()}
           </a>
 

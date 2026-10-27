@@ -1,28 +1,30 @@
 import './App.css';
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { useState } from 'react';
 import { useEffect } from 'react';
-import React from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Home from './components/Home';
+import SmoothScroll from './components/SmoothScroll';
 
 function App () {
 
-  useEffect(()=> {
+  useEffect(() => {
     AOS.init({
-      duration:1200,
+      duration: 1200,
       easing: 'ease-in-out',
-    })
-  }, [] );
+      once: false,
+    });
+  }, []);
 
-  return(
+  return (
     <HashRouter>
-      <Routes>
-        <Route path='/' element={< Home />} />
-      </Routes>
+      <SmoothScroll>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </SmoothScroll>
     </HashRouter>
-  )
+  );
 }
 
 export default App;
